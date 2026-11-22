@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' https://skovtech.ru https://*.skovtech.ru https://web.telegram.org https://*.telegram.org http://localhost:* http://127.0.0.1:*;"
+        }
+      ]
+    }
+  ]
+}
