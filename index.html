@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>CARBON LAB • Центр тонировки и защиты кузова</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            carbon: {
+              950: '#09090B',
+              900: '#111114',
+              800: '#18181C',
+              700: '#27272D',
+            },
+            steel: {
+              300: '#D4D4D8',
+              400: '#A1A1AA',
+              500: '#71717A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #09090B;
+      color: #F4F4F5;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Кастомный скроллбар для дат и слотов на мобильных */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .carbon-grid {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-white selection:text-black">
+
+  <!-- ВЕРХНЯЯ ПАНЕЛЬ -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-carbon-950/85 backdrop-blur-md">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded bg-white text-black flex items-center justify-center font-mono font-bold text-sm tracking-tighter">
+          CL
+        </div>
+        <div>
+          <span class="font-bold tracking-wider text-sm sm:text-base uppercase text-white block leading-none">CARBON LAB</span>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-steel-400">Тонировка & Детейлинг</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="hidden sm:flex items-center gap-2 text-xs font-mono text-steel-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Бокс открыт • 09:00 – 21:00
+        </div>
+        <a href="#booking" class="px-4 py-2 rounded bg-white text-black font-semibold text-xs sm:text-sm hover:bg-steel-300 transition active:scale-95">
+          Запись онлайн
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ПЕРВЫЙ ЭКРАН (HERO) -->
+  <section class="relative overflow-hidden border-b border-white/10 carbon-grid">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-carbon-950/60 to-carbon-950 pointer-events-none"></div>
+    
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-12 pb-16 sm:pt-20 sm:pb-24">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-xs font-mono text-steel-300 mb-6">
+        <span class="text-white font-bold">ГОСТ 33997-2016</span> • Сертифицированный центр
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] max-w-4xl">
+        Профессиональная тонировка по ГОСТу и оклейка кузова за 2 часа
+        <span class="block text-steel-400 mt-2 text-2xl sm:text-4xl lg:text-5xl font-bold">Запись онлайн без звонков</span>
+      </h1>
+
+      <p class="mt-5 text-steel-400 text-sm sm:text-base max-w-xl leading-relaxed">
+        Работаем без разбора дверных карт и заломов плёнки. Точный расчёт стоимости и выбор свободного времени бокса за 30 секунд.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:items-center">
+        <a href="#booking" class="inline-flex items-center justify-center px-7 py-4 rounded-lg bg-white text-black font-bold text-sm sm:text-base hover:bg-steel-300 transition shadow-[0_0_30px_rgba(255,255,255,0.15)] active:scale-[0.98]">
+          Рассчитать и записаться
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="#business-value" class="inline-flex items-center justify-center px-6 py-4 rounded-lg border border-white/15 bg-carbon-900/80 text-steel-300 font-medium text-sm hover:border-white/30 hover:text-white transition">
+          Как это работает для бизнеса?
+        </a>
+      </div>
+
+      <!-- 3 КОРОТКИХ ФАКТА -->
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+        <div class="p-4 rounded-xl border border-white/10 bg-carbon-900/90 backdrop-blur">
+          <div class="font-mono text-xs text-steel-400 uppercase tracking-wider">01 / Материалы</div>
+          <div class="mt-1 font-bold text-white text-base">Плёнки LLumar / SunTek</div>
+          <p class="mt-1 text-xs text-steel-400">Оригинальные рулоны США с защитой от выгорания и УФ-лучей 99%</p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-white/10 bg-carbon-900/90 backdrop-blur">
+          <div class="font-mono text-xs text-steel-400 uppercase tracking-wider">02 / Надёжность</div>
+          <div class="mt-1 font-bold text-white text-base">Гарантия на работу</div>
+          <p class="mt-1 text-xs text-steel-400">Пожизненная гарантия от отслоения и пузырей при соблюдении рекомендаций</p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-white/10 bg-carbon-900/90 backdrop-blur">
+          <div class="font-mono text-xs text-steel-400 uppercase tracking-wider">03 / Безопасность</div>
+          <div class="mt-1 font-bold text-white text-base">Бокс с видеонаблюдением</div>
+          <p class="mt-1 text-xs text-steel-400">Чистая зона с климат-контролем и охраняемой парковкой 24/7</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР И ОНЛАЙН-ЗАПИСЬ -->
+  <section id="booking" class="py-12 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="mb-8">
+      <span class="font-mono text-xs uppercase tracking-widest text-steel-400">Онлайн-конфигуратор</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Расчёт стоимости и выбор слота</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- ЛЕВАЯ КОЛОНКА: ШАГИ ВЫБОРА -->
+      <div class="lg:col-span-7 space-y-8">
+        
+        <!-- ШАГ 1: КЛАСС АВТО -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <label class="text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
+              <span class="w-5 h-5 rounded bg-white/10 text-white font-mono text-xs flex items-center justify-center">1</span>
+              Класс автомобиля
+            </label>
+            <span id="class-multiplier-badge" class="text-xs font-mono text-steel-400">Базовый тариф</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" id="car-class-group">
+            <button type="button" data-class="sedan" data-mult="1" data-label="Седан / Хэтчбек"
+              class="car-class-btn active text-left p-3.5 rounded-xl border border-white bg-white text-black transition">
+              <div class="font-bold text-sm">Седан / Хэтчбек</div>
+              <div class="text-xs opacity-75 mt-0.5 font-mono">Стандарт (×1.0)</div>
+            </button>
+
+            <button type="button" data-class="suv" data-mult="1.2" data-label="Кроссовер / Внедорожник"
+              class="car-class-btn text-left p-3.5 rounded-xl border border-white/10 bg-carbon-900 text-white hover:border-white/30 transition">
+              <div class="font-bold text-sm">Кроссовер / SUV</div>
+              <div class="text-xs text-steel-400 mt-0.5 font-mono">+20% площадь</div>
+            </button>
+
+            <button type="button" data-class="business" data-mult="1.35" data-label="Бизнес / Премиум"
+              class="car-class-btn text-left p-3.5 rounded-xl border border-white/10 bg-carbon-900 text-white hover:border-white/30 transition">
+              <div class="font-bold text-sm">Бизнес / Премиум</div>
+              <div class="text-xs text-steel-400 mt-0.5 font-mono">+35% сложность</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- ШАГ 2: ВЫБОР УСЛУГИ -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <label class="text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
+              <span class="w-5 h-5 rounded bg-white/10 text-white font-mono text-xs flex items-center justify-center">2</span>
+              Выберите услугу
+            </label>
+            <span class="text-xs text-steel-400">Можно выбрать одну или несколько</span>
+          </div>
+
+          <div class="space-y-2.5" id="services-list">
+            <!-- Услуги рендерятся через JS для точного пересчёта -->
+          </div>
+        </div>
+
+        <!-- ШАГ 3: ДАТА И ВРЕМЯ БОКСА -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <label class="text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
+              <span class="w-5 h-5 rounded bg-white/10 text-white font-mono text-xs flex items-center justify-center">3</span>
+              Дата и свободный слот бокса
+            </label>
+          </div>
+
+          <!-- Даты -->
+          <div class="flex gap-2 overflow-x-auto no-scrollbar pb-2" id="dates-container"></div>
+
+          <!-- Слоты времени -->
+          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 mt-3" id="slots-container"></div>
+        </div>
+
+      </div>
+
+      <!-- ПРАВАЯ КОЛОНКА: ИТОГ И ФОРМА ЗАПИСИ -->
+      <div class="lg:col-span-5 lg:sticky lg:top-24">
+        <form id="booking-form" class="p-5 sm:p-6 rounded-2xl border border-white/15 bg-carbon-900 shadow-2xl">
+          <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <div>
+              <div class="text-xs font-mono uppercase text-steel-400">Предварительный расчёт</div>
+              <div class="text-3xl font-extrabold text-white font-mono mt-1" id="total-price">4 500 ₽</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs font-mono text-steel-400">Время работы</div>
+              <div class="text-sm font-bold text-white mt-1" id="total-duration">~ 1.5 – 2 часа</div>
+            </div>
+          </div>
+
+          <!-- Сводка выбранного -->
+          <div class="py-3.5 border-b border-white/10 space-y-1.5 text-xs">
+            <div class="flex justify-between">
+              <span class="text-steel-400">Класс авто:</span>
+              <span class="font-semibold text-white" id="summary-class">Седан / Хэтчбек</span>
+            </div>
+            <div class="flex justify-between gap-4">
+              <span class="text-steel-400 shrink-0">Услуги:</span>
+              <span class="font-semibold text-white text-right" id="summary-services">Тонировка задней полусферы (LLumar 5% / 15%)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-steel-400">Дата и время:</span>
+              <span class="font-mono font-semibold text-emerald-400" id="summary-datetime">Сегодня, 14:00</span>
+            </div>
+          </div>
+
+          <!-- Поля ввода -->
+          <div class="mt-4 space-y-3">
+            <div>
+              <label class="block text-xs font-medium text-steel-300 mb-1">Марка и модель авто *</label>
+              <input type="text" id="car-model" required placeholder="Например: BMW 3 Series / Kia K5"
+                class="w-full px-3.5 py-2.5 rounded-lg bg-carbon-950 border border-white/15 text-white text-sm placeholder:text-steel-500 focus:outline-none focus:border-white transition" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-steel-300 mb-1">Ваше имя *</label>
+              <input type="text" id="client-name" required placeholder="Александр"
+                class="w-full px-3.5 py-2.5 rounded-lg bg-carbon-950 border border-white/15 text-white text-sm placeholder:text-steel-500 focus:outline-none focus:border-white transition" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-medium text-steel-300 mb-1">Телефон или @Telegram *</label>
+              <input type="text" id="client-contact" required placeholder="+7 (999) 123-45-67 или @username"
+                class="w-full px-3.5 py-2.5 rounded-lg bg-carbon-950 border border-white/15 text-white text-sm placeholder:text-steel-500 focus:outline-none focus:border-white transition" />
+            </div>
+          </div>
+
+          <button type="submit" id="submit-btn"
+            class="mt-5 w-full py-3.5 px-4 rounded-xl bg-white text-black font-extrabold text-sm uppercase tracking-wider hover:bg-steel-300 transition active:scale-[0.98] flex items-center justify-center gap-2">
+            <span>Записаться в бокс</span>
+          </button>
+
+          <p class="mt-3 text-[11px] text-center text-steel-500">
+            Оплата после приёмки работы. Бронь бокса бесплатна.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- БЛОК «ВЫГОДА ДЛЯ БИЗНЕСА» (ДЛЯ ПРЕЗЕНТАЦИИ ВЛАДЕЛЬЦАМ СТУДИЙ) -->
+  <section id="business-value" class="border-t border-white/10 bg-carbon-900/60 py-14 sm:py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <div>
+          <span class="inline-block px-2.5 py-1 rounded bg-white/10 font-mono text-[11px] uppercase tracking-widest text-white mb-2">
+            Архитектура решения • Для владельцев бизнеса
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Что происходит после нажатия «Записаться»?</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-steel-400 max-w-sm">
+          Сайт полностью заменяет ручную переписку в мессенджерах и исключает потерю горячих заявок в нерабочее время.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-5 rounded-2xl border border-white/10 bg-carbon-950">
+          <div class="w-9 h-9 rounded-lg bg-white/10 text-white font-mono font-bold flex items-center justify-center text-sm mb-4">
+            01
+          </div>
+          <h3 class="font-bold text-white text-base">Клиент получает фиксацию цены</h3>
+          <p class="mt-2 text-xs sm:text-sm text-steel-400 leading-relaxed">
+            Автовладелец сразу видит прозрачный прайс под свой класс кузова, выбирает свободное окно и получает экран подтверждения брони без ожидания ответа менеджера.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-white/10 bg-carbon-950">
+          <div class="w-9 h-9 rounded-lg bg-sky-500/20 text-sky-400 font-mono font-bold flex items-center justify-center text-sm mb-4">
+            TG
+          </div>
+          <h3 class="font-bold text-white text-base">Мастер в боксе — пуш в Telegram</h3>
+          <p class="mt-2 text-xs sm:text-sm text-steel-400 leading-relaxed">
+            За 1 секунду бот отправляет структурированную карточку заявки в рабочий чат бокса: марка авто, выбранная плёнка, слот времени, сумма и кликабельный контакт.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl border border-white/10 bg-carbon-950">
+          <div class="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center text-sm mb-4">
+            CRM
+          </div>
+          <h3 class="font-bold text-white text-base">Администратор — строка в Google Таблице</h3>
+          <p class="mt-2 text-xs sm:text-sm text-steel-400 leading-relaxed">
+            Каждая запись автоматически заносится в облачную таблицу учёта с датой, статусом, услугами и прогнозируемой выручкой — без платных ежемесячных CRM.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="border-t border-white/10 bg-carbon-950 py-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-steel-500">
+      <div>
+        © 2026 CARBON LAB • Демо-проект центра тонировки и автодетейлинга
+      </div>
+      <div>
+        <a href="https://skovtech.ru" target="_blank" rel="noopener noreferrer"
+           class="font-mono font-bold tracking-wider text-steel-300 hover:text-white transition inline-flex items-center gap-1.5">
+          <span>ENGINEERED BY SKOV TECHNOLOGIES</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- МОДАЛЬНОЕ ОКНО ПОСЛЕ ОТПРАВКИ (ДЕМОНСТРАЦИЯ РАБОТЫ СИСТЕМЫ) -->
+  <div id="success-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="w-full max-w-md rounded-2xl border border-white/15 bg-carbon-900 p-6 shadow-2xl transform transition-all">
+      <div class="flex items-center justify-between">
+        <span id="modal-mode-badge" class="px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-400 font-mono text-[11px] font-bold uppercase">
+          Заявка сформирована
+        </span>
+        <button type="button" id="close-modal-x" class="text-steel-400 hover:text-white p-1">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <h3 class="text-xl font-extrabold text-white mt-3">Бокс забронирован!</h3>
+      <p class="text-xs text-steel-400 mt-1">
+        Ниже показано, как система автоматизации распределяет данные сразу после нажатия кнопки клиентом:
+      </p>
+
+      <div class="mt-4 space-y-2.5 text-xs">
+        <div class="p-3 rounded-xl bg-carbon-950 border border-white/10">
+          <div class="font-mono text-emerald-400 font-bold mb-1">✓ 1. Экран клиента</div>
+          <div class="text-steel-300" id="modal-client-info">Авто: BMW • Слот: Сегодня, 14:00 • Итого: 4 500 ₽</div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-carbon-950 border border-white/10">
+          <div class="font-mono text-sky-400 font-bold mb-1">✓ 2. Уведомление мастеру в Telegram</div>
+          <div class="text-steel-400 font-mono text-[11px] leading-relaxed" id="modal-tg-preview"></div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-carbon-950 border border-white/10">
+          <div class="font-mono text-amber-400 font-bold mb-1">✓ 3. Запись в Google Таблицу</div>
+          <div class="text-steel-400" id="modal-sheets-status">Новая строка добавлена в лист «Записи» с расчётом выручки.</div>
+        </div>
+      </div>
+
+      <button type="button" id="close-modal-btn" class="mt-5 w-full py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-steel-300 transition">
+        Отлично, закрыть окно
+      </button>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * =========================================================================
+     * КОНФИГУРАЦИЯ ИНТЕГРАЦИИ С GOOGLE APPS SCRIPT
+     * Вставьте URL развёрнутого веб-приложения Google Apps Script в GAS_URL.
+     * Если оставить строку пустой (''), сайт автоматически работает в красивом
+     * интерактивном ДЕМО-РЕЖИМЕ для показа клиентам без ошибок сети.
+     * =========================================================================
+     */
+    const GAS_URL = ''; // Например: 'https://script.google.com/macros/s/AKfycbx.../exec'
+
+    // Базовые услуги (цены указаны для Седана / Хэтчбека)
+    const SERVICES = [
+      {
+        id: 'rear',
+        title: 'Тонировка задней полусферы (LLumar 5% / 15%)',
+        desc: 'Задние двери + заднее стекло. Без разбора обшивок.',
+        basePrice: 4500,
+        hours: 1.5
+      },
+      {
+        id: 'front_aterm',
+        title: 'Тонировка передних боковых стёкол (атермальная по ГОСТ)',
+        desc: 'Проходит замер тауметром, защита салона от нагрева.',
+        basePrice: 3500,
+        hours: 1.0
+      },
+      {
+        id: 'full_circle',
+        title: 'Тонировка в круг (без лобового)',
+        desc: 'Полный комплект боковых и заднего стекла.',
+        basePrice: 6500,
+        hours: 2.0
+      },
+      {
+        id: 'ppf_risk',
+        title: 'Оклейка зон риска полиуретановой плёнкой',
+        desc: 'Капот, фары, передний бампер, стойки, под ручками.',
+        basePrice: 18000,
+        hours: 4.0
+      },
+      {
+        id: 'polish_ceramic',
+        title: 'Полировка кузова + керамика',
+        desc: 'Восстановительная полировка + 2 слоя керамического состава.',
+        basePrice: 15000,
+        hours: 5.0
+      }
+    ];
+
+    const TIME_SLOTS = ['10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
+
+    // Состояние приложения
+    const state = {
+      carClass: 'sedan',
+      carClassLabel: 'Седан / Хэтчбек',
+      multiplier: 1.0,
+      selectedServices: new Set(['rear']), // По умолчанию выбрана самая популярная услуга
+      selectedDate: '',
+      selectedSlot: '14:00'
+    };
+
+    // Форматирование цены
+    function formatPrice(num) {
+      return Math.round(num / 100) * 100;
+    }
+
+    function formatRub(num) {
+      return formatPrice(num).toLocaleString('ru-RU') + ' ₽';
+    }
+
+    // Генерация ближайших 6 дней
+    function initDates() {
+      const container = document.getElementById('dates-container');
+      const daysRu = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+      const monthsRu = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+
+      container.innerHTML = '';
+      for (let i = 0; i < 6; i++) {
+        const d = new Date();
+        d.setDate(d.getDate() + i);
+
+        const dayLabel = i === 0 ? 'Сегодня' : i === 1 ? 'Завтра' : daysRu[d.getDay()];
+        const dateStr = `${d.getDate()} ${monthsRu[d.getMonth()]}`;
+        const fullLabel = `${dayLabel} (${dateStr})`;
+
+        if (i === 0) state.selectedDate = fullLabel;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.dataset.date = fullLabel;
+        btn.className = `date-btn shrink-0 px-4 py-2.5 rounded-xl border text-left transition ${
+          i === 0
+            ? 'border-white bg-white text-black'
+            : 'border-white/10 bg-carbon-900 text-white hover:border-white/30'
+        }`;
+        btn.innerHTML = `
+          <div class="text-xs font-bold">${dayLabel}</div>
+          <div class="text-[11px] font-mono opacity-75 mt-0.5">${dateStr}</div>
+        `;
+
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.date-btn').forEach(b => {
+            b.className = 'date-btn shrink-0 px-4 py-2.5 rounded-xl border border-white/10 bg-carbon-900 text-white hover:border-white/30 text-left transition';
+          });
+          btn.className = 'date-btn shrink-0 px-4 py-2.5 rounded-xl border border-white bg-white text-black text-left transition';
+          state.selectedDate = fullLabel;
+          updateSummary();
+        });
+
+        container.appendChild(btn);
+      }
+    }
+
+    // Рендер слотов времени
+    function initSlots() {
+      const container = document.getElementById('slots-container');
+      container.innerHTML = '';
+
+      TIME_SLOTS.forEach((slot, idx) => {
+        // Имитация одного занятого слота для реалистичности
+        const isBusy = idx === 1;
+        const isSelected = slot === state.selectedSlot;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.disabled = isBusy;
+        btn.dataset.slot = slot;
+
+        if (isBusy) {
+          btn.className = 'py-2.5 rounded-lg border border-white/5 bg-carbon-900/40 text-steel-500 font-mono text-xs line-through cursor-not-allowed';
+          btn.textContent = slot;
+          btn.title = 'Слот уже занят';
+        } else {
+          btn.className = `slot-btn py-2.5 rounded-lg border font-mono text-xs font-bold transition ${
+            isSelected
+              ? 'border-white bg-white text-black'
+              : 'border-white/10 bg-carbon-900 text-white hover:border-white/30'
+          }`;
+          btn.textContent = slot;
+
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.slot-btn').forEach(b => {
+              b.className = 'slot-btn py-2.5 rounded-lg border border-white/10 bg-carbon-900 text-white hover:border-white/30 font-mono text-xs font-bold transition';
+            });
+            btn.className = 'slot-btn py-2.5 rounded-lg border border-white bg-white text-black font-mono text-xs font-bold transition';
+            state.selectedSlot = slot;
+            updateSummary();
+          });
+        }
+
+        container.appendChild(btn);
+      });
+    }
+
+    // Рендер списка услуг с актуальными ценами под класс авто
+    function renderServices() {
+      const container = document.getElementById('services-list');
+      container.innerHTML = '';
+
+      SERVICES.forEach(srv => {
+        const isChecked = state.selectedServices.has(srv.id);
+        const currentPrice = formatPrice(srv.basePrice * state.multiplier);
+
+        const card = document.createElement('div');
+        card.className = `p-4 rounded-xl border cursor-pointer transition select-none flex items-start justify-between gap-4 ${
+          isChecked
+            ? 'border-white bg-white/[0.07]'
+            : 'border-white/10 bg-carbon-900 hover:border-white/25'
+        }`;
+
+        card.innerHTML = `
+          <div class="flex items-start gap-3">
+            <div class="mt-0.5 w-5 h-5 rounded flex items-center justify-center border shrink-0 transition ${
+              isChecked ? 'bg-white border-white text-black' : 'border-white/30 bg-carbon-950'
+            }">
+              ${isChecked ? '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>' : ''}
+            </div>
+            <div>
+              <div class="font-bold text-sm text-white leading-snug">${srv.title}</div>
+              <div class="text-xs text-steel-400 mt-1">${srv.desc}</div>
+            </div>
+          </div>
+          <div class="text-right shrink-0">
+            <div class="font-mono font-bold text-sm sm:text-base text-white">от ${currentPrice.toLocaleString('ru-RU')} ₽</div>
+            <div class="text-[11px] font-mono text-steel-400 mt-0.5">~${srv.hours} ч</div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          if (state.selectedServices.has(srv.id)) {
+            // Не даём снять последнюю услугу, чтобы расчёт всегда был корректным
+            if (state.selectedServices.size > 1) {
+              state.selectedServices.delete(srv.id);
+            }
+          } else {
+            // Если выбрана "Тонировка в круг", логично снять отдельно заднюю полусферу (и наоборот)
+            if (srv.id === 'full_circle') state.selectedServices.delete('rear');
+            if (srv.id === 'rear') state.selectedServices.delete('full_circle');
+            state.selectedServices.add(srv.id);
+          }
+          renderServices();
+          updateSummary();
+        });
+
+        container.appendChild(card);
+      });
+    }
+
+    // Переключение класса автомобиля
+    function initCarClasses() {
+      const buttons = document.querySelectorAll('.car-class-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => {
+            b.className = 'car-class-btn text-left p-3.5 rounded-xl border border-white/10 bg-carbon-900 text-white hover:border-white/30 transition';
+            b.querySelector('div:nth-child(2)').className = 'text-xs text-steel-400 mt-0.5 font-mono';
+          });
+
+          btn.className = 'car-class-btn active text-left p-3.5 rounded-xl border border-white bg-white text-black transition';
+          btn.querySelector('div:nth-child(2)').className = 'text-xs opacity-75 mt-0.5 font-mono';
+
+          state.carClass = btn.dataset.class;
+          state.carClassLabel = btn.dataset.label;
+          state.multiplier = parseFloat(btn.dataset.mult);
+
+          const badge = document.getElementById('class-multiplier-badge');
+          badge.textContent = state.multiplier === 1 ? 'Базовый тариф' : `Коэффициент ×${state.multiplier}`;
+
+          renderServices();
+          updateSummary();
+        });
+      });
+    }
+
+    // Обновление правой карточки с итоговой суммой
+    function updateSummary() {
+      let total = 0;
+      let totalHours = 0;
+      const titles = [];
+
+      SERVICES.forEach(srv => {
+        if (state.selectedServices.has(srv.id)) {
+          total += formatPrice(srv.basePrice * state.multiplier);
+          totalHours += srv.hours;
+          titles.push(srv.title);
+        }
+      });
+
+      document.getElementById('total-price').textContent = `от ${total.toLocaleString('ru-RU')} ₽`;
+      document.getElementById('total-duration').textContent = `~ ${totalHours} ч`;
+      document.getElementById('summary-class').textContent = state.carClassLabel;
+      document.getElementById('summary-services').textContent = titles.join(' + ');
+      document.getElementById('summary-datetime').textContent = `${state.selectedDate}, ${state.selectedSlot}`;
+
+      return { total, totalHours, titles };
+    }
+
+    // Отправка формы (POST в Google Apps Script или Демо-режим)
+    function initForm() {
+      const form = document.getElementById('booking-form');
+      const submitBtn = document.getElementById('submit-btn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const carModel = document.getElementById('car-model').value.trim();
+        const clientName = document.getElementById('client-name').value.trim();
+        const clientContact = document.getElementById('client-contact').value.trim();
+        const { total, titles } = updateSummary();
+
+        const payload = {
+          carClass: state.carClassLabel,
+          carModel,
+          services: titles.join(', '),
+          date: state.selectedDate,
+          time: state.selectedSlot,
+          price: total,
+          name: clientName,
+          contact: clientContact,
+          source: 'CARBON LAB Demo (SKOV TECHNOLOGIES)'
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Отправка заявки...</span>';
+
+        let isDemo = !GAS_URL || GAS_URL.trim() === '';
+
+        try {
+          if (!isDemo) {
+            // Используем text/plain, чтобы избежать CORS preflight-запроса со стороны Google Apps Script
+            await fetch(GAS_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: JSON.stringify(payload)
+            });
+          } else {
+            // Имитация сетевой задержки 500 мс в демо-режиме
+            await new Promise(resolve => setTimeout(resolve, 500));
+          }
+
+          showSuccessModal(payload, isDemo);
+          form.reset();
+        } catch (err) {
+          alert('Ошибка сети при отправке заявки. Проверьте подключение.');
+          console.error(err);
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Записаться в бокс</span>';
+        }
+      });
+    }
+
+    // Показ модального окна с демонстрацией работы автоматизации
+    function showSuccessModal(data, isDemo) {
+      const modal = document.getElementById('success-modal');
+      const badge = document.getElementById('modal-mode-badge');
+
+      if (isDemo) {
+        badge.textContent = 'ДЕМО-РЕЖИМ • ИМИТАЦИЯ CRM';
+        badge.className = 'px-2.5 py-1 rounded bg-amber-500/15 text-amber-400 font-mono text-[11px] font-bold uppercase';
+      } else {
+        badge.textContent = 'ОТПРАВЛЕНО В GOOGLE SHEETS + TG';
+        badge.className = 'px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-400 font-mono text-[11px] font-bold uppercase';
+      }
+
+      document.getElementById('modal-client-info').textContent =
+        `Авто: ${data.carModel} (${data.carClass}) • Слот: ${data.date}, ${data.time} • Расчёт: от ${data.price.toLocaleString('ru-RU')} ₽`;
+
+      document.getElementById('modal-tg-preview').innerHTML =
+        `🔥 <b>Новая запись в бокс!</b><br>` +
+        `Авто: ${data.carModel} (${data.carClass})<br>` +
+        `Услуга: ${data.services}<br>` +
+        `Время: ${data.date} в ${data.time}<br>` +
+        `Сумма: от ${data.price.toLocaleString('ru-RU')} ₽<br>` +
+        `Клиент: ${data.name} (${data.contact})`;
+
+      document.getElementById('modal-sheets-status').textContent = isDemo
+        ? 'В боевом режиме строка автоматически записывается в Google Таблицу (вставьте GAS_URL в код).'
+        : 'Строка успешно передана в веб-хук Google Apps Script.';
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    // Закрытие модального окна
+    function initModalClose() {
+      const modal = document.getElementById('success-modal');
+      const close = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      };
+      document.getElementById('close-modal-x').addEventListener('click', close);
+      document.getElementById('close-modal-btn').addEventListener('click', close);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) close();
+      });
+    }
+
+    // Запуск при загрузке
+    document.addEventListener('DOMContentLoaded', () => {
+      initDates();
+      initSlots();
+      initCarClasses();
+      renderServices();
+      updateSummary();
+      initForm();
+      initModalClose();
+    });
+  </script>
+</body>
+</html>
